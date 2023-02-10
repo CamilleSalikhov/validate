@@ -5,3 +5,10 @@
 p {
     text-align: center;
 }
+
+
+.messageItem {
+    background-color: lavender;
+    margin: 4px;
+    border-radius: 5px;
+}

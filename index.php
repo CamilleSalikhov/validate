@@ -1,18 +1,6 @@
 <?php
 
-// header("Content-Type: application/json");
-  //header("Access-Control-Allow-Methods: POST");
-//header('Access-Control-Allow-Origin: *');
 
-//$data = json_decode(file_get_contents("php://input"));
-//echo json_encode($data . ' ' . 'Это ответ')  ; 
-
-//include("database.php");
-
-//die($_GET['q']);
-//$db = new Database();
-//$db->connectDb();
-//$db -> add();
 
  
 require __DIR__ . "/ValidationController.php";

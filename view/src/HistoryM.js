@@ -4,7 +4,7 @@ import './HistoryM.css'
 
 const HistoryM = ({messages}) => {
 
-    const allMessages = messages.map(e => <div key={uuidv4()}>
+    const allMessages = messages.map(e => <div className='messageItem' key={uuidv4()}>
         {e.history}
     </div>)
 

@@ -20,14 +20,23 @@ class ValidationController {
        $bold;
        $eng = 0;
        $rus = 0;
+       $lang;
 
 
        for ($i = 0 ; $i < count($data["value"])  ; $i++) {
         
 
         if (strlen($data["value"][$i]) === mb_strlen($data["value"][$i]) ){
-          array_push($charLang, 1 ); //у символов тоже 1
+          if (preg_match('/[a-zA-Z]/', $data["value"][$i])) {
+            array_push($charLang, 1 ); //у символов тоже 1
           $eng++;
+          } else {
+
+        array_push($charLang, 3 );
+          }
+
+
+           
         } else {
           array_push($charLang, 2 );
           $rus++;
@@ -35,10 +44,14 @@ class ValidationController {
          
        }
 
+
+
        if ($eng > $rus) {
         $bold = 2;
+        $lang = "Английский";
        } else if ($eng <=  $rus) {
         $bold = 1;
+        $lang = "Русский";
        }
 
 
@@ -52,7 +65,8 @@ class ValidationController {
         "message" => "item was successfully added",
          "code" => $charLang,
          "bold" => $bold,
-         "original" => $data["value"]
+         "original" => $data["value"],
+         "lang" => $lang
 
        ]);
 
@@ -63,7 +77,8 @@ class ValidationController {
         "message" => "validating",
          "code" => $charLang,
          "bold" => $bold,
-         "original" => $data["value"]
+         "original" => $data["value"],
+         "lang" => $lang
 
        ]);
 
